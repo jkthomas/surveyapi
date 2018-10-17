@@ -12,3 +12,17 @@ E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\Survey
 E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.RazorTargetAssemblyInfo.cache
 E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.dll
 E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.pdb
+E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.Views.dll
+E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.Views.pdb
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.TagHelpers.input.cache
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.TagHelpers.output.cache
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.RazorCoreGenerate.cache
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\Razor\Views\Question\Create.g.cshtml.cs
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\Razor\Views\Question\Delete.g.cshtml.cs
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\Razor\Views\Question\Details.g.cshtml.cs
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\Razor\Views\Question\Edit.g.cshtml.cs
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\Razor\Views\Question\Index.g.cshtml.cs
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_ValidationScriptsPartial.g.cshtml.cs
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.RazorTargetAssemblyInfo.cs
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.Views.pdb
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.csproj.CopyComplete
