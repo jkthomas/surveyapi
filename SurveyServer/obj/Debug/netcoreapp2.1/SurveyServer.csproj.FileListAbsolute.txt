@@ -1,0 +1,14 @@
+E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.deps.json
+E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.runtimeconfig.json
+E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.runtimeconfig.dev.json
+E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.dll
+E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.pdb
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.csprojAssemblyReference.cache
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.csproj.CoreCompileInputs.cache
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.RazorAssemblyInfo.cache
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.RazorAssemblyInfo.cs
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.AssemblyInfoInputs.cache
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.AssemblyInfo.cs
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.RazorTargetAssemblyInfo.cache
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.dll
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.pdb
