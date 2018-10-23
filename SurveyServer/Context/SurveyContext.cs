@@ -18,8 +18,8 @@ namespace SurveyServer.Context
         {
         }
 
-        public virtual DbSet<Entity_Question> TableQuestion { get; set; }
-        public virtual DbSet<Entity_Reply> TableReply { get; set; }
+        public virtual DbSet<Entity_Question> Questions { get; set; }
+        public virtual DbSet<Entity_Reply> Replies { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

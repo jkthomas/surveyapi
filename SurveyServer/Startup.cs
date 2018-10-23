@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SurveyServer.Context;
+using SurveyServer.Repositories;
 
 namespace SurveyServer
 {
@@ -20,6 +21,8 @@ namespace SurveyServer
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<QuestionRepository>();
+            services.AddTransient<ReplyRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             var connection = @"Server=.\SQLEXPRESS2017;Database=Survey;Trusted_Connection=True;ConnectRetryCount=0";
@@ -39,11 +42,11 @@ namespace SurveyServer
             }
 
             app.UseHttpsRedirection();
-            //app.UseMvc();
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
-            });
+            app.UseMvc();
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute("default", "{controller=Home}/{action=Index}/{id?}");
+            //});
         }
     }
 }
