@@ -7,8 +7,8 @@ namespace SurveyServer.Models.DTO
 {
     public class QuestionDto
     {
-        public string Content { get; set; }
-        public int Type { get; set; }
+        public string Contento { get; set; }
+        public int Typeo { get; set; }
 
         public IEnumerable<ReplyDto> Replies { get; set; }
     }

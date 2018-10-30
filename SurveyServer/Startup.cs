@@ -27,6 +27,14 @@ namespace SurveyServer
 
             var connection = @"Server=.\SQLEXPRESS2017;Database=Survey;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<SurveyContext>(options => options.UseSqlServer(connection));
+
+            //Disable on global usage IMPORTANT
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +48,9 @@ namespace SurveyServer
             {
                 app.UseHsts();
             }
+
+            //Disable on global usage IMPORTANT
+            app.UseCors("MyPolicy");
 
             app.UseHttpsRedirection();
             app.UseMvc();

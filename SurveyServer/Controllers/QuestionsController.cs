@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SurveyServer.Context;
@@ -28,6 +29,7 @@ namespace SurveyServer.Controllers
 
         // GET: api/<controller>
         [HttpGet]
+        [EnableCors("MyPolicy")]
         public IActionResult Get()
         {
             IEnumerable<Entity_Question> questions = _questionRepository.GetAllQuestions();
@@ -41,8 +43,8 @@ namespace SurveyServer.Controllers
             {
                 questionsDtos.Add(new QuestionDto()
                 {
-                    Content = question.Content,
-                    Type = question.Type,
+                    Contento = question.Content,
+                    Typeo = question.Type,
                     Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()
                 });
             }
@@ -63,8 +65,8 @@ namespace SurveyServer.Controllers
 
             QuestionDto questionDto = new QuestionDto()
             {
-                Content = question.Content,
-                Type = question.Type,
+                Contento = question.Content,
+                Typeo = question.Type,
                 Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()
             };
 
