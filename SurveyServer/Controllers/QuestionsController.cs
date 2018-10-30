@@ -6,9 +6,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SurveyServer.Context;
 using SurveyServer.Context.Survey.Entities;
+using SurveyServer.Models.DTO;
 using SurveyServer.Repositories;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+//https://localhost:44329/api/questions
 
 namespace SurveyServer.Controllers
 {
@@ -29,17 +31,23 @@ namespace SurveyServer.Controllers
         public IActionResult Get()
         {
             IEnumerable<Entity_Question> questions = _questionRepository.GetAllQuestions();
+            List<QuestionDto> questionsDtos = new List<QuestionDto>();
             if (!questions.Any())
             {
                 return BadRequest();
             }
-
+            
             foreach (Entity_Question question in questions)
             {
-                question.Reply = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray();
+                questionsDtos.Add(new QuestionDto()
+                {
+                    Content = question.Content,
+                    Type = question.Type,
+                    Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()
+                });
             }
 
-            return Json(questions);
+            return Json(questionsDtos);
         }
 
         // GET api/<controller>/5
@@ -47,14 +55,20 @@ namespace SurveyServer.Controllers
         public IActionResult Get(int questionId)
         {
             Entity_Question question = _questionRepository.GetQuestion(questionId);
+            
             if(question == null)
             {
                 return BadRequest();
             }
 
-            question.Reply = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray();
+            QuestionDto questionDto = new QuestionDto()
+            {
+                Content = question.Content,
+                Type = question.Type,
+                Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()
+            };
 
-            return Json(question);
+            return Json(questionDto);
         }
 
         // POST api/<controller>

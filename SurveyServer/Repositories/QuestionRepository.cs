@@ -1,5 +1,6 @@
 ﻿using SurveyServer.Context;
 using SurveyServer.Context.Survey.Entities;
+using SurveyServer.Models.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,12 +21,16 @@ namespace SurveyServer.Repositories
 
         public IEnumerable<Entity_Question> GetAllQuestions()
         {
-            return _context.Questions;
+            IEnumerable<Entity_Question> questions = _context.Questions.ToArray();
+
+            return questions;
         }
 
         public Entity_Question GetQuestion(int id)
         {
-            return _context.Questions.Where(question => question.Id == id).FirstOrDefault();
+            Entity_Question question = _context.Questions.Where(q => q.Id == id).FirstOrDefault();
+
+            return question;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using SurveyServer.Context;
 using SurveyServer.Context.Survey.Entities;
+using SurveyServer.Models.DTO;
 using SurveyServer.Utilities.Enum;
 using System;
 using System.Collections.Generic;
@@ -18,35 +19,61 @@ namespace SurveyServer.Repositories
             _context = context;
         }
 
-        public IEnumerable<Entity_Reply> GetReplies()
+        public IEnumerable<ReplyDto> GetReplies()
         {
-            return _context.Replies;
+            IEnumerable<ReplyDto> replies = _context.Replies.Select(
+                reply => new ReplyDto
+                {
+                    Content = reply.Content,
+                    Type = reply.Type
+                });
+
+            return replies;
         }
 
-        public async Task<Entity_Reply> GetReplyAsync(int id)
+        public ReplyDto GetReplyAsync(int id)
         {
-            return await _context.Replies.FindAsync(id);
+            ReplyDto reply = new ReplyDto();
+            Entity_Reply reply_entity = _context.Replies.Where(r => r.Id == id).FirstOrDefault();
+
+            if (reply_entity != null)
+            {
+                reply.Content = reply_entity.Content;
+                reply.Type = reply_entity.Type;
+            }
+
+            return reply;
         }
 
-        public IEnumerable<Entity_Reply> GetReplyForQuestion(int questionId, int questionType)
+        public IEnumerable<ReplyDto> GetReplyForQuestion(int questionId, int questionType)
         {
-            IEnumerable<Entity_Reply> replies = null;
+            IEnumerable<ReplyDto> replies = null;
             if (questionType == (int)Enum_QuestionType.YesNo)
             {
-                replies = _context.Replies.Where(reply => reply.Type == (int)Enum_QuestionType.YesNo);
+                replies = _context.Replies.Where(reply => reply.Type == (int)Enum_QuestionType.YesNo).Select(
+                reply => new ReplyDto
+                {
+                    Content = reply.Content,
+                    Type = reply.Type
+                });
             }
             else if (questionType == (int)Enum_QuestionType.Opened)
             {
-                replies = _context.Replies.Where(reply => reply.Type == (int)Enum_QuestionType.Opened);
+                replies = _context.Replies.Where(reply => reply.Type == (int)Enum_QuestionType.Opened).Select(
+                reply => new ReplyDto
+                {
+                    Content = reply.Content,
+                    Type = reply.Type
+                });
             }
             else
             {
-                replies = _context.Replies.Where(reply => reply.QuestionId == questionId && reply.Type == questionType);
-            }
-
-            foreach (Entity_Reply reply in replies)
-            {
-                reply.Question = null;
+                replies = _context.Replies.Where(reply => reply.QuestionId == questionId && reply.Type == questionType).Select(
+                reply => new ReplyDto
+                {
+                    Content = reply.Content,
+                    Type = reply.Type
+                });
             }
 
             return replies;
