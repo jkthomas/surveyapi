@@ -43,8 +43,8 @@ namespace SurveyServer.Controllers
             {
                 questionsDtos.Add(new QuestionDto()
                 {
-                    Contento = question.Content,
-                    Typeo = question.Type,
+                    Content = question.Content,
+                    Type = question.Type,
                     Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()
                 });
             }
@@ -65,8 +65,8 @@ namespace SurveyServer.Controllers
 
             QuestionDto questionDto = new QuestionDto()
             {
-                Contento = question.Content,
-                Typeo = question.Type,
+                Content = question.Content,
+                Type = question.Type,
                 Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()
             };
 
