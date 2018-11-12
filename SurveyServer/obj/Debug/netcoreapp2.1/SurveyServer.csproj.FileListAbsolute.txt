@@ -3,7 +3,6 @@ E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\Survey
 E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.runtimeconfig.dev.json
 E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.dll
 E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.pdb
-E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.csprojAssemblyReference.cache
 E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.csproj.CoreCompileInputs.cache
 E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.RazorAssemblyInfo.cache
 E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.RazorAssemblyInfo.cs
