@@ -7,6 +7,7 @@ namespace SurveyServer.Models.DTO
 {
     public class QuestionDto
     {
+        public int Id { get; set; }
         public string Content { get; set; }
         public int Type { get; set; }
 

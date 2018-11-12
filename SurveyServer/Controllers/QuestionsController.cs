@@ -43,6 +43,7 @@ namespace SurveyServer.Controllers
             {
                 questionsDtos.Add(new QuestionDto()
                 {
+                    Id = question.Id,
                     Content = question.Content,
                     Type = question.Type,
                     Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()
@@ -65,6 +66,7 @@ namespace SurveyServer.Controllers
 
             QuestionDto questionDto = new QuestionDto()
             {
+                Id = question.Id,
                 Content = question.Content,
                 Type = question.Type,
                 Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()

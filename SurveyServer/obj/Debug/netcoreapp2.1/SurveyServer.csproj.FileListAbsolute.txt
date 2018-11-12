@@ -13,3 +13,4 @@ E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\Survey
 E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.pdb
 E:\VisualStudioProjects\SurveyServer\SurveyServer\bin\Debug\netcoreapp2.1\SurveyServer.Views.dll
 E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.csproj.CopyComplete
+E:\VisualStudioProjects\SurveyServer\SurveyServer\obj\Debug\netcoreapp2.1\SurveyServer.csprojAssemblyReference.cache

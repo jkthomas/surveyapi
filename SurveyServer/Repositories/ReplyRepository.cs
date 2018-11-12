@@ -24,6 +24,7 @@ namespace SurveyServer.Repositories
             IEnumerable<ReplyDto> replies = _context.Replies.Select(
                 reply => new ReplyDto
                 {
+                    Id = reply.Id,
                     Content = reply.Content
                 });
 
@@ -37,6 +38,7 @@ namespace SurveyServer.Repositories
 
             if (reply_entity != null)
             {
+                reply.Id = reply_entity.Id;
                 reply.Content = reply_entity.Content;
             }
 
@@ -51,6 +53,7 @@ namespace SurveyServer.Repositories
                 replies = _context.Replies.Where(reply => reply.Type == (int)Enum_QuestionType.YesNo).Select(
                 reply => new ReplyDto
                 {
+                    Id = reply.Id,
                     Content = reply.Content
                 });
             }
@@ -59,6 +62,7 @@ namespace SurveyServer.Repositories
                 replies = _context.Replies.Where(reply => reply.Type == (int)Enum_QuestionType.Opened).Select(
                 reply => new ReplyDto
                 {
+                    Id = reply.Id,
                     Content = reply.Content
                 });
             }
@@ -67,6 +71,7 @@ namespace SurveyServer.Repositories
                 replies = _context.Replies.Where(reply => reply.QuestionId == questionId && reply.Type == questionType).Select(
                 reply => new ReplyDto
                 {
+                    Id = reply.Id,
                     Content = reply.Content
                 });
             }
