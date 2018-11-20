@@ -25,7 +25,8 @@ namespace SurveyServer.Repositories
                 reply => new ReplyDto
                 {
                     Id = reply.Id,
-                    Content = reply.Content
+                    Content = reply.Content,
+                    Type = reply.Type
                 });
 
             return replies;
@@ -40,6 +41,7 @@ namespace SurveyServer.Repositories
             {
                 reply.Id = reply_entity.Id;
                 reply.Content = reply_entity.Content;
+                reply.Type = reply_entity.Type;
             }
 
             return reply;
@@ -54,7 +56,8 @@ namespace SurveyServer.Repositories
                 reply => new ReplyDto
                 {
                     Id = reply.Id,
-                    Content = reply.Content
+                    Content = reply.Content,
+                    Type = reply.Type
                 });
             }
             else if (questionType == (int)Enum_QuestionType.Opened)
@@ -63,7 +66,8 @@ namespace SurveyServer.Repositories
                 reply => new ReplyDto
                 {
                     Id = reply.Id,
-                    Content = reply.Content
+                    Content = reply.Content,
+                    Type = reply.Type
                 });
             }
             else
@@ -72,7 +76,8 @@ namespace SurveyServer.Repositories
                 reply => new ReplyDto
                 {
                     Id = reply.Id,
-                    Content = reply.Content
+                    Content = reply.Content,
+                    Type = reply.Type
                 });
             }
 
