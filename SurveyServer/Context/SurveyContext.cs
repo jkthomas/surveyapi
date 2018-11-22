@@ -18,6 +18,7 @@ namespace SurveyServer.Context
         {
         }
 
+        public virtual DbSet<Entity_Answer> Answers { get; set; }
         public virtual DbSet<Entity_Question> Questions { get; set; }
         public virtual DbSet<Entity_Reply> Replies { get; set; }
 
@@ -26,12 +27,45 @@ namespace SurveyServer.Context
             if (!optionsBuilder.IsConfigured)
             {
                 //TODO: To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=.\\SQLEXPRESS2017;Database=Survey;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=(local)\\SQLEXPRESS2017;Database=Survey;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Entity_Answer>(entity =>
+            {
+                entity.ToTable("table_answer");
+
+                entity.Property(e => e.Id)
+                    .HasColumnName("id")
+                    .ValueGeneratedNever();
+
+                entity.Property(e => e.QuestionId).HasColumnName("question_id");
+
+                entity.Property(e => e.ReplyContent)
+                    .IsRequired()
+                    .HasColumnName("reply_content")
+                    .HasMaxLength(255)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ReplyId).HasColumnName("reply_id");
+
+                entity.Property(e => e.SessionNumber).HasColumnName("session_number");
+
+                entity.HasOne(d => d.Question)
+                    .WithMany(p => p.TableAnswer)
+                    .HasForeignKey(d => d.QuestionId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_QuestionID");
+
+                entity.HasOne(d => d.Reply)
+                    .WithMany(p => p.TableAnswer)
+                    .HasForeignKey(d => d.ReplyId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_ReplyID");
+            });
+
             modelBuilder.Entity<Entity_Question>(entity =>
             {
                 entity.ToTable("table_question");
@@ -60,7 +94,7 @@ namespace SurveyServer.Context
                 entity.Property(e => e.Type).HasColumnName("type");
 
                 entity.HasOne(d => d.Question)
-                    .WithMany(p => p.Reply)
+                    .WithMany(p => p.TableReply)
                     .HasForeignKey(d => d.QuestionId)
                     .OnDelete(DeleteBehavior.Cascade)
                     .HasConstraintName("FK_reply_question_id");

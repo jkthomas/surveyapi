@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SurveyServer.Context.Survey.Entities
 {
@@ -9,13 +7,15 @@ namespace SurveyServer.Context.Survey.Entities
     {
         public Entity_Question()
         {
-            Reply = new HashSet<Entity_Reply>();
+            TableAnswer = new HashSet<Entity_Answer>();
+            TableReply = new HashSet<Entity_Reply>();
         }
 
         public int Id { get; set; }
         public string Content { get; set; }
         public int Type { get; set; }
 
-        public ICollection<Entity_Reply> Reply { get; set; }
+        public ICollection<Entity_Answer> TableAnswer { get; set; }
+        public ICollection<Entity_Reply> TableReply { get; set; }
     }
 }

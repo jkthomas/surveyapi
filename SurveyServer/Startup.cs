@@ -28,7 +28,7 @@ namespace SurveyServer
             var connection = @"Server=.\SQLEXPRESS2017;Database=Survey;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<SurveyContext>(options => options.UseSqlServer(connection));
 
-            //Disable on global usage IMPORTANT
+            //TODO: Disable on global usage IMPORTANT
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
             {
                 builder.AllowAnyOrigin()
@@ -49,7 +49,7 @@ namespace SurveyServer
                 app.UseHsts();
             }
 
-            //Disable on global usage IMPORTANT
+            //TODO: Disable on global usage IMPORTANT
             app.UseCors("MyPolicy");
 
             app.UseHttpsRedirection();
