@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using SurveyServer.Models.DTO;
 using SurveyServer.Repositories;
@@ -9,6 +10,7 @@ using SurveyServer.Repositories;
 namespace SurveyServer.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("CORS")]
     public class AnswersController : Controller
     {
         private readonly AnswerRepository _answerRepository;
@@ -20,10 +22,10 @@ namespace SurveyServer.Controllers
 
         //JSON only
         [HttpPost]
-        public IActionResult Post([FromBody][Bind("QuestionId, ReplyId, ReplyContent")] AnswerDto answer)
+        public IActionResult Post([FromBody] AnswerDto[] answers)
         {
-            _answerRepository.SaveAnswer(answer);
-            return Json(answer);
+            _answerRepository.SaveAnswer(answers);
+            return Json(answers);
         }
     }
 }

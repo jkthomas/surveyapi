@@ -37,9 +37,7 @@ namespace SurveyServer.Context
             {
                 entity.ToTable("table_answer");
 
-                entity.Property(e => e.Id)
-                    .HasColumnName("id")
-                    .ValueGeneratedNever();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.QuestionId).HasColumnName("question_id");
 

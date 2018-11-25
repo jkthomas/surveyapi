@@ -16,6 +16,7 @@ using SurveyServer.Repositories;
 namespace SurveyServer.Controllers
 {
     [Route("api/[controller]")]
+    [EnableCors("CORS")]
     public class QuestionsController : Controller
     {
         private readonly QuestionRepository _questionRepository;
@@ -29,7 +30,6 @@ namespace SurveyServer.Controllers
 
         // GET: api/<controller>
         [HttpGet]
-        [EnableCors("MyPolicy")]
         public IActionResult Get()
         {
             IEnumerable<Entity_Question> questions = _questionRepository.GetAllQuestions();
@@ -73,24 +73,6 @@ namespace SurveyServer.Controllers
             };
 
             return Json(questionDto);
-        }
-
-        // POST api/<controller>
-        [HttpPost]
-        public void Post([FromBody]string value)
-        {
-        }
-
-        // PUT api/<controller>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/<controller>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
         }
     }
 }

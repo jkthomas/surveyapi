@@ -23,13 +23,14 @@ namespace SurveyServer
         {
             services.AddTransient<QuestionRepository>();
             services.AddTransient<ReplyRepository>();
+            services.AddTransient<AnswerRepository>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             var connection = @"Server=.\SQLEXPRESS2017;Database=Survey;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<SurveyContext>(options => options.UseSqlServer(connection));
 
             //TODO: Disable on global usage IMPORTANT
-            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            services.AddCors(o => o.AddPolicy("CORS", builder =>
             {
                 builder.AllowAnyOrigin()
                        .AllowAnyMethod()
@@ -50,7 +51,7 @@ namespace SurveyServer
             }
 
             //TODO: Disable on global usage IMPORTANT
-            app.UseCors("MyPolicy");
+            app.UseCors("CORS");
 
             app.UseHttpsRedirection();
             app.UseMvc();

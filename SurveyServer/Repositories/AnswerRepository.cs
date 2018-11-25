@@ -1,4 +1,5 @@
 ﻿using SurveyServer.Context;
+using SurveyServer.Context.Survey.Entities;
 using SurveyServer.Models.DTO;
 using System;
 using System.Collections.Generic;
@@ -16,12 +17,28 @@ namespace SurveyServer.Repositories
             _context = context;
         }
 
-        public void SaveAnswer(AnswerDto answer)
+        public void SaveAnswer(AnswerDto[] answers)
         {
-            int oldSessionNumber = _context.Answers.Max(ans => ans.SessionNumber);
-            answer.SessionNumber = oldSessionNumber + 1;
+            int oldSessionNumber = 0;
+            try
+            {
+                oldSessionNumber = _context.Answers.Max(ans => ans.SessionNumber);
+            }
+            catch
+            {
+                //IF DATABASE HAS NO ENTRIES
+            }
 
-            _context.Add(answer);
+            foreach (AnswerDto answer in answers)
+            {
+                _context.Add(new Entity_Answer()
+                {
+                    QuestionId = answer.QuestionId,
+                    ReplyId = answer.ReplyId,
+                    ReplyContent = answer.ReplyContent,
+                    SessionNumber = (int)oldSessionNumber + 1
+                });
+            }
             _context.SaveChanges();
         }
     }
