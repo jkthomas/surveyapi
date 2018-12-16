@@ -47,7 +47,7 @@ namespace SurveyServer.Repositories
             return reply;
         }
 
-        public IEnumerable<ReplyDto> GetReplyForQuestion(int questionId, int questionType)
+        public IEnumerable<ReplyDto> GetRepliesForQuestion(int questionId, int questionType)
         {
             IEnumerable<ReplyDto> replies = null;
             if (questionType == (int)Enum_QuestionType.YesNo)

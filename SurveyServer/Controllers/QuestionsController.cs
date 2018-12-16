@@ -28,7 +28,7 @@ namespace SurveyServer.Controllers
             _replyRepository = replyRepository;
         }
 
-        // GET: api/<controller>
+        // GET: api/questions
         [HttpGet]
         public IActionResult Get()
         {
@@ -46,14 +46,14 @@ namespace SurveyServer.Controllers
                     Id = question.Id,
                     Content = question.Content,
                     Type = question.Type,
-                    Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()
+                    Replies = _replyRepository.GetRepliesForQuestion(question.Id, question.Type).ToArray()
                 });
             }
 
             return Json(questionsDtos);
         }
 
-        // GET api/<controller>/5
+        // GET api/questions/{questionId}
         [HttpGet("{questionId}")]
         public IActionResult Get(int questionId)
         {
@@ -69,7 +69,7 @@ namespace SurveyServer.Controllers
                 Id = question.Id,
                 Content = question.Content,
                 Type = question.Type,
-                Replies = _replyRepository.GetReplyForQuestion(question.Id, question.Type).ToArray()
+                Replies = _replyRepository.GetRepliesForQuestion(question.Id, question.Type).ToArray()
             };
 
             return Json(questionDto);

@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 
 namespace SurveyServer.Models.DTO
 {
-    public class AnswerDto
+    public class GetAnswerDto
     {
         public int QuestionId { get; set; }
         public int ReplyId { get; set; }
         public string ReplyContent { get; set; }
+        public int SessionNumber { get; set; }
     }
 }
